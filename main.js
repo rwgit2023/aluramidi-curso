@@ -10,5 +10,17 @@ function tocaSomPom() {
 
 
 
-document.querySelector('.tecla_pom').onclick = tocaSomPom;
+// document.querySelector('.tecla_pom').onclick = tocaSomPom;       pega apenas 1 tecla
+
+
+
+
+
+
+const listaDeTeclas = document.querySelectorAll('.tecla');  // pega todas as classes (botoes)
+
+
+
+
+
 

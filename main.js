@@ -24,7 +24,7 @@
 // 
 
 
-
+// Funcao com Parametro de entrada
 function tocaSom(idElementoAudioAudio){
 
     document.querySelector(idElementoAudioAudio).play();
@@ -39,7 +39,10 @@ let contador = 0;
 
 while(contador < listaDeTeclas.length){
 
-    listaDeTeclas[contador].onclick = tocaSom;
+    // listaDeTeclas[contador].onclick = tocaSom;
+    listaDeTeclas[contador].onclick = function(){
+        tocaSom ('#som_tecla_pom')
+    }
     contador +=1
 
     console.log(contador);

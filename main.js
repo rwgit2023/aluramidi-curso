@@ -24,7 +24,7 @@
 // 
 
 
-// Funcao com Parametro de entrada
+// Funcao com Parametro de entrada (toca o som)
 function tocaSom(idElementoAudioAudio){
 
     document.querySelector(idElementoAudioAudio).play();
@@ -39,11 +39,19 @@ let contador = 0;
 
 while(contador < listaDeTeclas.length){
 
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1]; // pega o nome faltante na string
+
+    //Template String
+    const idAudio = `#som_${instrumento}`;        // soma oque euu tinha com as novas
+
+    // console.log(idAudio);
+    
     // listaDeTeclas[contador].onclick = tocaSom;
-    listaDeTeclas[contador].onclick = function(){
-        tocaSom ('#som_tecla_pom')
+    tecla.onclick = function(){
+        tocaSom (idAudio)
     }
     contador +=1
 
-    console.log(contador);
+    // console.log(contador);
 }

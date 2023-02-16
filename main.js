@@ -30,9 +30,24 @@
 
 
 // Funcao com Parametro de entrada (toca o som)
-function tocaSom(idElementoAudioAudio){
+function tocaSom(seletortAudio){
 
-    document.querySelector(idElementoAudioAudio).play();
+   const elemento =  document.querySelector(seletortAudio);
+
+   if (elemento === null){
+
+        alert('Element not found')
+        // console.log('Element not Found')
+   }
+
+   if (elemento != null){
+
+    if (elemento.localName === 'audio'){
+
+         elemento.play();
+     }
+        
+   }
 }
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
@@ -42,14 +57,25 @@ for(let contador = 0; contador < listaDeTeclas.length; contador++){
     const tecla = listaDeTeclas[contador];
     const instrumento = tecla.classList[1]; // pega o nome faltante na string
     //Template String
-    const idAudio = `#som_${instrumento}`;        // soma oque euu tinha com as novas
+    const seletortAudio = `#som_${instrumento}`; // soma oque euu tinha com as novas
     // listaDeTeclas[contador].onclick = tocaSom;
     tecla.onclick = function(){
-        tocaSom (idAudio)
+        tocaSom (seletortAudio)
     }
       
-    tecla.onkeydown = function(){
-        tecla.classList.add('ativa')
+    tecla.onkeydown = function(evento){
+
+       
+        // console.log(evento.code == 'Space') // Mostra qual tecla esta sendo digitada
+        
+        if (evento.code === 'Space' || evento.code === 'Enter' || evento.code === 'NumpadEnter'){ 
+            tecla.classList.add('ativa')
+        }
+        // coloca as cores de fundo nas teclas quando o botao aativo
+    }
+
+    tecla.onkeyup = function(){
+        tecla.classList.remove('ativa')// retira as cores do botap quando for solto
     }
 } 
 

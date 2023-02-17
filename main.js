@@ -34,19 +34,15 @@ function tocaSom(seletortAudio){
 
    const elemento =  document.querySelector(seletortAudio);
 
-   if (elemento === null){
 
-        alert('Element not found')
-        // console.log('Element not Found')
+   if (/*elemento != null */ elemento && elemento.localName === 'audio'){
+    
+        elemento.play();
+      
    }
-
-   if (elemento != null){
-
-    if (elemento.localName === 'audio'){
-
-         elemento.play();
-     }
-        
+   else{
+    alert('Element or selector not found')
+    // console.log('Element not Found')
    }
 }
 
